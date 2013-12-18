@@ -1,14 +1,11 @@
-# Instalation
+## Installation
 
 This is Cumiki Demo App for http://cumiki.com/demo
 
 ```
 git clone git@github.com:cumiki/demo-app.git
-
 cd demo-app
-
 bundle install
-
 rake db:migrate
 ```
 
@@ -18,7 +15,7 @@ Then you can run server
 rails s
 ```
 
-# Setup Twitter Developer
+## Setup Twitter Developer
 
 To use Twitter API, please set up `ENV['TWITTER_KEY']` and `ENV['TWITTER_SECRET']`
 
