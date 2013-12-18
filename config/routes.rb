@@ -4,7 +4,7 @@ DemoApp::Application.routes.draw do
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
 
-  resources :users, path: '/'
+  resources :users, path: '/', only: [:index, :show, :destroy]
   resources :sessions, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
