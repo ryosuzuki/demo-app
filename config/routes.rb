@@ -4,8 +4,8 @@ DemoApp::Application.routes.draw do
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
 
-  resources :users
-  resources :sessions
+  resources :users, path: '/'
+  resources :sessions, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
