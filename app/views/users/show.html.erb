@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div id="users-show">
+  <h1>
+    <span>Timeline for </span>
+    <span><%= link_to "@#{@user.username} on Twitter", "https://twitter.com/#{@user.username}", target: "blank" %></span>
+  </h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <% @tweets.each do |tweet| %>
+  <% if tweet[:user][:protected] == false || tweet[:user] == current_user.username%>
+  <div class="tweet">
+    <div class="text">
+      <%= tweet[:text] %>
+    </div>
+    <div class="user">
+      tweet by <%= tweet[:user][:screen_name] %>
+    </div>
+    <div class="time">
+      <%= tweet[:created_at].to_date %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
