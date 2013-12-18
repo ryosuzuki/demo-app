@@ -1,25 +1,19 @@
-<h1>Listing users</h1>
+<div id="users-index">
+  <% if current_user %>
+  <p>
+    Hello
+    <%= link_to "@#{current_user.username}", user_path(current_user.username) %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to "Connect Twitter", "/auth/twitter" %>
+  </p>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+  <h1>Users</h1>
+  <% @users.each do |user| %>
+  <div class="user">
+    <%= link_to "@#{user.username}", user_path(user.username) %>
+  </div>
+  <% end %>
+</div>
