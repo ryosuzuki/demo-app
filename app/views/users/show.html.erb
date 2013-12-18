@@ -3,6 +3,9 @@
     <span>Timeline for </span>
     <span><%= link_to "@#{@user.username} on Twitter", "https://twitter.com/#{@user.username}", target: "blank" %></span>
   </h1>
+  <p>
+    <%= link_to "Go Back to Home", root_path %>
+  </p>
 
   <% @tweets.each do |tweet| %>
   <% if tweet[:user][:protected] == false || tweet[:user] == current_user.username%>
