@@ -3,6 +3,7 @@ DemoApp::Application.routes.draw do
 
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
+  get 'logout' => 'sessions#destroy'
 
   resources :users, path: '/', only: [:index, :show, :destroy]
   resources :sessions, only: [:create, :destroy]
